@@ -231,7 +231,7 @@ function mainGameFunction(prediction, actual, score){
 	playerInputs.inputHistory.push(actual);
 	// aiInputs.currentPrediction = prediction;
 	aiInputs.inputHistory.push(defeat(prediction));
-	aiInputs.currentInput = defeat(prediction);
+	aiInputs.currentInput = defeat(prediction);	
 	if (prediction == actual){
 		score.totalWins++; 
 		return 'Win'; 
@@ -245,15 +245,6 @@ function mainGameFunction(prediction, actual, score){
 	}
 }
 
-//run a bunch of games
-for (var i = 1000 - 1; i >= 0; i--) {
-	playerInputs.currentInput = randomPrediction(['Paper','Rock','Scissors','Rock', 'Scissors']);
-	mainGameFunction(aiPrediction(playerInputs.inputHistory, aiInputs.inputHistory, score.totalGamesPlayed), playerInputs.currentInput , score);
-
-}
-
-alert('Total games played '+ score.totalGamesPlayed);
-alert('Winning percentage '+ Math.round((score.totalWins/score.totalGamesPlayed)*100)+'%');
 console.log(score);
 
 
